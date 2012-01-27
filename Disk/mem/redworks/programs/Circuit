@@ -1,0 +1,126 @@
+function clear()
+term.clear()
+term.setCursorPos(1,1)
+end
+
+local running = true
+while running do
+clear()
+print ("Which circuitry would you like?\n")
+shell.run( "ls", "/mem/redworks/programs/circuits/" )
+print()
+choice = io.read()
+choice = string.lower(choice)
+cname = choice	
+    choice = "/mem/redworks/programs/circuits/"..choice
+	if fs.exists(choice) then
+	break
+	else
+	print ("\nNo circuit found by that name.\n")
+	end
+end
+
+sFile = ("logic/"..cname)
+sPath = shell.resolve(sFile)
+	if fs.exists(sPath) then
+fs.delete( "logic/"..cname )
+end
+
+clear()
+fs.makeDir("/logic")
+fs.copy( choice, "logic/"..cname )
+local tLines = {}
+local file = io.open( "logic/"..cname, "r" )
+local sLine = file:read()
+	while sLine do
+		table.insert( tLines, sLine )
+		sLine = file:read()
+	end
+file:close()
+table.insert( tLines, "" )
+term.setCursorPos(1,1)
+print (tLines[1])
+print (tLines[2])
+print (tLines[3])
+print""
+tLines[1] = string.sub(tLines[1],string.len(tLines[1]), -1)
+tLines[2] = string.sub(tLines[2],string.len(tLines[2]), -1)
+tLines[3] = string.sub(tLines[3],string.len(tLines[3]), -1)
+
+numinputs = tonumber(tLines[1])
+numoutputs = tonumber(tLines[2])
+numextras = tonumber(tLines[3])
+a = 7
+b = a + numinputs
+print ("=-=| "..cname.." |=-=")
+print ("\nDefault Inputs are:")
+while a < b do
+s = string.sub(tLines[a], 13, -1)
+s = string.sub(s, 1, string.len(s) - 1)
+print (s)
+a = a + 1
+end
+print ("Default Outputs are:")
+b = a + numoutputs
+while a < b do
+s = string.sub(tLines[a], 14, -1)
+s = string.sub(s, 1, string.len(s) - 1)
+print (s)
+a = a + 1
+end
+if numextras > 0 then
+aa = a - 1
+a = 1
+print ("")
+while a <= numextras do
+s = string.sub(tLines[aa + a], 13, -1)
+s = string.sub(s, 1, string.len(s) - 1)
+print ("Enter a setting for - "..s)
+choice = io.read()
+tLines[aa + a] = "extra["..a.."] = \""..choice.."\""
+a = a + 1
+end
+end
+
+print ("\nWant to change the "..cname.."'s I/O settings?\n(y)es (n)o")
+choice = io.read()
+choice = string.lower(choice)
+if choice == "y" then
+c = 1
+results = ""
+print ("(right - left - back - front - top - bottom)")
+	while c <= numinputs do
+	print ("New Input for #"..c)
+	choice = io.read()
+	choice = string.lower(choice)
+	tLines[c + 6] = "Input["..c.."] = \""..choice.."\""
+	results = results.."Input #"..c.." set to - "..choice.."\n"
+	c = c + 1
+	end
+	c = 1
+    while c <= numoutputs do
+	print ("New Output for #"..c)
+	choice = io.read()
+	choice = string.lower(choice)
+	tLines[c + 6 + numinputs] = "Output["..c.."] = \""..choice.."\""
+	results = results.."Output #"..c.." set to - "..choice.."\n"
+	c = c + 1
+	end
+	term.clear()
+    print ("\n"..results)
+	print ("A ["..cname.."] circuit has been installed successfully.\n")
+else
+print ("\nA ["..cname.."] circuit has been installed successfully with default settings.\n")
+end
+
+print (" Type [ logic/"..cname.." ] to run the circuit. ")
+
+table.remove (tLines , 1)
+table.remove (tLines , 1)
+table.remove (tLines , 1)
+
+local file = io.open( "logic/"..cname, "w" )
+for n, sLine in ipairs( tLines ) do
+file:write( sLine .. "\n" )
+end
+file:close()

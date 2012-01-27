@@ -1,0 +1,15 @@
+
+BundleWorks is a Redworks program that tells the computer which redpower wire attached to a bundled cable to activate / deactivate. All you have to do is type the color you wish to toggle the output.
+ 
+ colors such as: supports all 16 colors: White, Orange, Magenta, LightBlue, Yellow, Lime, Pink, Gray, LightGray, Cyan, Purple, Blue, Brown, Green, Yellow, and Black.
+ 
+ reset: turns all the wires off.
+ all: turns all the wires on.
+ quit: quits the program, and shutdown.
+ 
+ Important: Bundleworks assumes you have the regular 
+ bundled cable, connected to the back of the computer for output. And the extension of color wire you choose.]]
+
+ Created by Redworks Developer: FuzzyPurp(streetstar5)
+ 
+ Visit www.RedworksOS.com for discussions.

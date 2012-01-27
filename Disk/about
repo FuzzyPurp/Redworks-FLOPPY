@@ -1,0 +1,16 @@
+term.clear()
+term.setCursorPos(1,1)
+print"RedWorks is an Addon-Software for the CraftOS.\nIt was developed to be more user friendly,\nadd new api's, programs, additional content,\nas well as connect to the real internet."
+
+print"\nAdditional info can be found at our\nOfficial website: www.RedWorksOS.com\n\n\n"
+print"Press BACKSPACE to return"
+
+while true do
+event, param1, param2 = os.pullEvent()
+if event == "key" and param1 == 14 then
+shell.run("disk/startup")
+end
+if param1 ~= 14 then
+shell.run("disk/about")
+end
+end

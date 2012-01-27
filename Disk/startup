@@ -1,0 +1,46 @@
+function clear()
+term.clear()
+term.setCursorPos(1,1)
+end
+
+clear()
+shell.run('disk/mem/redworks/apis/redworks')
+print("   _ \\            |                    |        ")
+print("     /   -_)   _' | \\ \\  \\ /  _ \\   _| | / (_-< ")
+print("  _|_\\ \\___| \\__,_|  \\_/\\_/ \\___/ _|  _\\_\\ ___/ ")
+print("    Development Team at http://redworksos.com")
+
+showWindow(12,6,25,8,"Redworks v" ..version().. " Floppy","1. About\n2. Setup\n3. Uninstall\n4. Credits\n5. Quit\n")
+term.setCursorPos(1,16)
+write"Choose a selection: "
+
+input = read()
+
+if input == "1" then
+shell.run("disk/about")
+	
+elseif input == "2" then
+shell.run("disk/setup")
+
+elseif input == "3" then
+shell.run("disk/uninstall")
+
+elseif input == "4" then
+shell.run("disk/credits")
+
+elseif input == "5" then
+term.clear()
+term.setCursorPos(7,6)
+sprint("Thank you for choosing Redworks")
+term.setCursorPos(10,8)
+sprint("Goodbye :D")
+sleep(2)
+os.shutdown()
+
+elseif input ~= "1" and input ~= "2" and input ~= "3" and input ~= "4" and input ~= "5" then
+term.setCursorPos(1,16)
+term.clearLine()
+write("Hmm..maybe you should try a valid number?")
+sleep(1.5)
+shell.run("disk/startup")
+end

@@ -1,0 +1,75 @@
+function reading()
+  sleep(0.5)
+  write "."
+end
+
+term.clear()
+term.setCursorPos(1,1)
+shell.run('disk/mem/redworks/apis/redworks')
+print("   _ \\            |                    |        ")
+print("     /   -_)   _' | \\ \\  \\ /  _ \\   _| | / (_-< ")
+print("  _|_\\ \\___| \\__,_|  \\_/\\_/ \\___/ _|  _\\_\\ ___/ ")
+print("    Development Team at http://redworksos.com")
+
+--Pre-Uninstall
+term.setCursorPos(1,5)
+print"+________________________________________________+"
+term.setCursorPos(20,7)
+sprint("WARNING!!!")
+term.setCursorPos(1,7)
+print"+------------------------------------------------+"
+print("\nThis will remove ALL files, located in Redworks\nfolder structure, including user accounts.\n\nPlease Backup before proceeding.")
+print("The changes are NOT reversable!\nYou have been warned.")
+term.setCursorPos(1,17)
+print("To proceed press ENTER. To Cancel Press BACKSPACE")
+
+while true do
+fault, event, param1, param2, param3 = pcall(os.pullEvent)
+if fault == false then 
+elseif event == "key" and param1 == 14 then
+shell.run("disk/startup")
+elseif event == "key" and param1 == 28 then
+break end
+end
+
+--Uninstallation
+term.clear()
+term.setCursorPos(1,2)
+write "Reading files"
+for n=1,5 do
+reading()
+end
+write "\n\nRemoving Redworks core files"
+for n=1,4 do
+reading()
+end
+print"Done."
+write "\nRemoving Redworks libraries"
+for n=1,3 do
+reading()
+end
+print"Done."
+write "\nRemoving Redworks programs"
+for n=1,2 do
+reading()
+end
+print"Done."
+write "\nRemoving user accounts."
+for n=1,2 do
+reading()
+end
+print"Done."
+fs.delete("startup")
+fs.delete("logic/")
+fs.delete("mem/")
+fs.delete("ACCOUNTS.F")
+--Exit
+
+term.setCursorPos(1,12)
+sprint("Redworks has been successfully\nuninstalled from Terminal # " ..os.getComputerID()..".\nIf you were not satisfied with our product,\nplease stop by our forums and explain why.")
+term.setCursorPos(1,17)
+write "Returning to the Main Menu"
+for n=1,10 do
+reading()
+end
+shell.run("disk/startup")

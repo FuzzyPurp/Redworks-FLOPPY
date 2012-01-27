@@ -1,0 +1,19 @@
+shell.setPath( ".:/rom/programs" )
+help.setPath( "/rom/help" )
+
+shell.setAlias( "ls", "list" )
+shell.setAlias( "dir", "list" )
+shell.setAlias( "cp", "copy" )
+shell.setAlias( "mv", "move" )
+shell.setAlias( "rm", "delete" )
+
+if fs.isDir('/mem/autorun') then
+	local files = fs.list('/mem/autorun')
+	table.sort(files)
+	for k, file in ipairs(files) do
+		local path = fs.combine('/mem/autorun', file)
+		if not fs.isDir(path) then
+			shell.run(path)
+		end
+	end
+end
