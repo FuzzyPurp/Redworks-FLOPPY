@@ -1,96 +1,46 @@
-function reading()
-  sleep(0.5)
-  write "."
-end
-
+function clear()
 term.clear()
 term.setCursorPos(1,1)
+end
+
+clear()
 shell.run('disk/mem/redworks/apis/redworks')
 print("   _ \\            |                    |        ")
 print("     /   -_)   _' | \\ \\  \\ /  _ \\   _| | / (_-< ")
 print("  _|_\\ \\___| \\__,_|  \\_/\\_/ \\___/ _|  _\\_\\ ___/ ")
 print("    Development Team at http://redworksos.com")
 
---Pre-Install
-term.setCursorPos(1,5)
-print"+________________________________________________+"
-term.setCursorPos(20,7)
-sprint("CAUTION!!!")
-term.setCursorPos(1,8)
-print"+------------------------------------------------+"
-print("\nThis will remove any previous installation\nof Redworks on this Terminal.\nPlease make Backups if necessary.")
-term.setCursorPos(1,17)
-print("To proceed press ENTER. To Cancel Press BACKSPACE")
-while true do
-fault, event, param1, param2, param3 = pcall(os.pullEvent)
-if fault == false then 
-elseif event == "key" and param1 == 14 then
-shell.run("disk/startup")
-elseif event == "key" and param1 == 28 then
-break end
-end
-fs.delete("startup")
-fs.delete("logic/")
-fs.delete("mem/")
-fs.delete("ACCOUNTS.F")
+showWindow(12,6,25,8,"Redworks v" ..version().. " Floppy","1. About\n2. Setup\n3. Uninstall\n4. Credits\n5. Quit\n")
+term.setCursorPos(1,16)
+write"Choose a selection: "
 
---Installation
+input = read()
+
+if input == "1" then
+shell.run("disk/about")
+  
+elseif input == "2" then
+shell.run("disk/setup")
+
+elseif input == "3" then
+shell.run("disk/uninstall")
+
+elseif input == "4" then
+shell.run("disk/credits")
+
+elseif input == "5" then
 term.clear()
-term.setCursorPos(1,2)
-write "Preparing files"
-for n=1,5 do
-reading()
-end
-write "\n\nInstalling Redworks core files"
-for n=1,4 do
-reading()
-end
-print"Done."
-write "\nInstalling Redworks libraries"
-for n=1,3 do
-reading()
-end
-print"Done."
-write "\nInstalling Redworks programs"
-for n=1,2 do
-reading()
-end
-print"Done."
-write "\nChecking for broken files"
-for n=1,2 do
-reading()
-end
-print"Done."
-
-fs.copy("disk/launcher", "startup")
-fs.copy("disk/mem/logic/", "logic/")
-fs.copy("disk/mem/bin/", "bin/")
-fs.copy("disk/mem/autorun/", "mem/autorun")
-fs.copy("disk/mem/redworks/apis/", "mem/redworks/apis")
-fs.copy("disk/mem/redworks/help/", "mem/redworks/help")
-fs.copy("disk/mem/redworks/libs/", "mem/redworks/libs")
-fs.copy("disk/mem/redworks/minepedia/", "mem/redworks/minepedia")
-fs.copy("disk/mem/redworks/programs/", "mem/redworks/programs")
+term.setCursorPos(7,6)
+sprint("Thank you for choosing Redworks")
+term.setCursorPos(10,8)
+sprint("Goodbye :D")
 sleep(2)
+os.shutdown()
 
---Exit
-term.clear()
-term.setCursorPos(1,1)
-print("                 +---------------+")
-term.setCursorPos(18,2)
-print("!Congratulations!")
-term.setCursorPos(1,3)
-print("                 +---------------+")
-term.setCursorPos(1,5)
-sprint("You've successfully installed Redworks\non Terminal # " ..os.getComputerID()..".")
-print("\nPut your floppy away, or use it to install Redworks on another Terminal.")
-print("\nBe sure to stop by the forums for updates, suggestions and technical support.\n Take the floppy out and reboot the Terminal.\n\nThank You for choosing Redworks!")
-term.setCursorPos(1,17)
-print("Press BACKSPACE to return.")
-while true do
-fault, event, param1, param2, param3 = pcall(os.pullEvent)
-if fault == false then 
-elseif event == "key" and param1 == 14 then
+elseif input ~= "1" and input ~= "2" and input ~= "3" and input ~= "4" and input ~= "5" then
+term.setCursorPos(1,16)
+term.clearLine()
+write("Hmm..maybe you should try a valid number?")
+sleep(1.5)
 shell.run("disk/startup")
-break end
 end
