@@ -18,7 +18,7 @@ print"streetstar5         Kyoshiku"
 print"                    DJRanger"
 
 bRunning = true
-print("\n\nPress BACKSPACE to return.")
+print("\nPress BACKSPACE to return.")
 while bRunning do
 event, param1, param2 = os.pullEvent()
 if event == "key" and param1 == 14 then
