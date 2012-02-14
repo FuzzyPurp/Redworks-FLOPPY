@@ -1,18 +1,6 @@
-IMPORTANT!
-
-Be sure you are installing ontop of a Unmodified CraftOS. I cant say if Redworks will work with other programs that alter the way CraftOS works, such as CookieSystems for example. But if they do, report back and let us know. Uninstall any older Version of Redworks as well. This version has a new file structure. ONCE AGAIN this is the floppy version, you should not be installing this if You installed Redworks into the .minecraft path, which effects all computers, and is a separate download. Through the use of Floppy, this only installs Redworks on the terminal you installed it on. And doesnt effect ALL computers : )
 
 Installation:
 Craft a floppy. Place it in a drive so it gets a folder created relative to its damage value id. Once you done this, hover the mouse over the disk and look at its id# "floppy disk 4256:1" means that is disk 1 and its path is .minecraft/saves/(yourworldname)/computer/disk/1/ <--
 Put the files there. Put the disk in a drive connected to a terminal and reboot if necessary and the setup should autorun :)
 
-The options should be easy, setup installs Redworks, uninstalls does the opposite. For easy use, We are now creating a new program "getredworks" when ran will download Redworks on the specific terminal : )
-getredworks may be available right now.
-
-IMPORTANT! For CC 1.2/MC 1.0 compatibility
-Dan forgot to add the new help api and help program to CC 1.2
-which is fixed and added in CC. 1.21.
-
-Redworks uses the help api, to merge our help programs in our help folder with CraftOS programs. Basically it will stil lwork but you will have a few problems with topics not showing up.
-
-To fix: Drop the help api and the help program from CC1.21 in their respective folders. I've included the files for you yo ucan install it the same way you installed redworks. 
+The options onscreen are self explanatory.
