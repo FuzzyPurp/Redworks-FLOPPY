@@ -64,7 +64,6 @@ print"Done."
 
 fs.copy("disk/launcher", "startup")
 fs.makeDir("logic/")
-fs.copy("disk/mem/bin/", "bin/")
 fs.copy("disk/mem/autorun/", "mem/autorun")
 fs.copy("disk/mem/redworks/apis/", "mem/redworks/apis")
 fs.copy("disk/mem/redworks/help/", "mem/redworks/help")
