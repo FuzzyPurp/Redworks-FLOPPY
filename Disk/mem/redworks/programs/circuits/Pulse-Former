@@ -8,7 +8,7 @@ input[1] = "left"
 output[1] = "back"
 
 -- Pulse Former
--- Created by: Streetstar5 aka FuzzyPurp
+-- Created by: FuzzyPurp
 
 local rRunning = true
 term.clear()
