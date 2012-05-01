@@ -8,7 +8,8 @@ input[1] = "front"
 input[2] = "left"
 output[1] = "right"
 output[2] = "back"
--- D-FlipFlop (Coded by Ferial's)
+
+-- D-FlipFlop
 -- press q or Q to exit to shell
 
 -- front  input: Clock
