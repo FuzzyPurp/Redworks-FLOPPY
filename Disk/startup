@@ -37,7 +37,7 @@ sprint("Goodbye :D")
 sleep(2)
 os.shutdown()
 
-else then
+else
 term.setCursorPos(1,16)
 term.clearLine()
 write("Hmm..maybe you should try a valid number?")
