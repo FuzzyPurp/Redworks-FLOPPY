@@ -37,7 +37,7 @@ sprint("Goodbye :D")
 sleep(2)
 os.shutdown()
 
-elseif input ~= "1" and input ~= "2" and input ~= "3" and input ~= "4" and input ~= "5" then
+else
 term.setCursorPos(1,16)
 term.clearLine()
 write("Hmm..maybe you should try a valid number?")
